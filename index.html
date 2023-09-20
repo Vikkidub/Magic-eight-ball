@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>    
+        //model
+        app = document.getElementById('app')
+              
+        let answers = ['You will get lucky','You will not get lucky','Something bad will happen',
+        'You will go bald','Your hair will grow back','Lightning will strike near you','idk, ask again',
+        'You will meet the love of your life ..pikaGunnar']
+        let answer = 'Ask the magic eight ball';
+   
+        //view
+        updateView();
+        function updateView(){
+            app.innerHTML = /*HTML*/`
+            <h1 id="mainDiv"onclick="getRandomAnswer()"style="border:solid 120px;border-radius:38%;margin:5%;"></h1>
+            `;
+            document.getElementById('mainDiv').innerHTML = answer;
+            }
+   
+        //controller
+        function getRandomAnswer(){
+              let randomIndex = Math.floor(Math.random() * answers.length) 
+              let answersTxt = answers.length > 0 ? answers[randomIndex] : 'The eight ball grows silent. Try coming back later.. (refresh the page)'
+              answer = answersTxt;
+              answers.splice(randomIndex, 1);
+              updateView();
+           }
+        
+       console.log(answers.length)</script>
+</body>
+</html>
